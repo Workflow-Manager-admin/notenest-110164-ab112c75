@@ -1,0 +1,143 @@
+/* Modern Minimal Notes App - Minimalistic Light Theme */
+
+/* Root Font/Vars */
+:root {
+  --primary: #1976d2;
+  --secondary: #424242;
+  --accent: #ffb300;
+  --sidebar-bg: #f7f8fa;
+  --sidebar-border: #e0e0e0;
+  --note-title: #222;
+  --note-title-active: #1976d2;
+  --note-content: #424242;
+  --placeholder: #a6a6a6;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: #fff;
+  color: var(--note-content);
+  letter-spacing: .01em;
+}
+
+/* Layout */
+.notes-app-root {
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.notes-header {
+  box-sizing: border-box;
+}
+
+/* Sidebar styles */
+.notes-sidebar {
+  background: var(--sidebar-bg);
+  min-width: 200px;
+  border-right: 1px solid var(--sidebar-border);
+  padding: 1rem 0;
+  height: 100%;
+  overflow-y: auto;
+}
+.notes-list {
+  margin: 0;
+  padding: 0;
+}
+.sidebar-note-listitem {
+  transition: background 0.15s, border 0.15s;
+}
+.sidebar-note-listitem:hover, .sidebar-note-listitem:focus {
+  background: #fffbe7;
+  border-color: var(--accent)!important;
+  outline: none;
+}
+
+.notes-main-layout {
+  min-height: 0;
+}
+
+/* Main panel content */
+.notes-main-content {
+  background: #fff;
+  overflow-y: auto;
+}
+
+/* Add/Edit form */
+.notes-addform input,
+.notes-editform input {
+  font-family: inherit;
+}
+.notes-addform textarea,
+.notes-editform textarea {
+  font-family: inherit;
+  line-height: 1.6;
+}
+.notes-addform input:focus,
+.notes-editform input:focus,
+.notes-addform textarea:focus,
+.notes-editform textarea:focus {
+  outline: 1.5px solid var(--primary);
+  background: #f0f4fa;
+}
+
+/* Button styles */
+button,
+input[type="submit"] {
+  box-sizing: border-box;
+  font-family: inherit;
+  outline: none;
+  transition: background 0.18s, border 0.12s, color 0.15s;
+}
+button:active {
+  opacity: .95;
+}
+.cancel-btn:hover {
+  background: #f2f2f2;
+  color: #a64b00;
+}
+
+/* Scrollbars minimal */
+.notes-sidebar,
+.notes-main-content {
+  scrollbar-width: thin;
+  scrollbar-color: var(--sidebar-border) #fff;
+}
+.notes-sidebar::-webkit-scrollbar,
+.notes-main-content::-webkit-scrollbar {
+  width: 8px;
+  background: #fff;
+}
+.notes-sidebar::-webkit-scrollbar-thumb,
+.notes-main-content::-webkit-scrollbar-thumb {
+  background: #eee;
+  border-radius: 6px;
+}
+
+/* Responsive for mobile */
+@media (max-width: 900px) {
+  .notes-main-layout {
+    flex-direction: column;
+  }
+  .notes-sidebar {
+    width: 100vw;
+    min-width: 0;
+    border-bottom: 1.5px solid var(--sidebar-border);
+    border-right: none;
+    min-height: 44px;
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .notes-main-content {
+    padding: 1.1rem !important;
+  }
+  .notes-header {
+    padding: 0 0.8rem !important;
+  }
+  .notes-sidebar {
+    padding: 0.4rem 0;
+  }
+}
